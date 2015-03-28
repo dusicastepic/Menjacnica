@@ -1,26 +1,32 @@
 package menjacnica;
 
 public class Valuta {
-	
+
 	private String ime, skracenica;
 	KursValute kv;
-	
+
 	public String getIme() {
 		return ime;
 	}
 	public void setIme(String ime) {
+		if (ime == null || ime.isEmpty() )
+			throw new RuntimeException("Morate da unesete naziv valute.");
 		this.ime = ime;
 	}
 	public String getSkracenica() {
 		return skracenica;
 	}
 	public void setSkracenica(String skracenica) {
+		if(skracenica == null || skracenica.isEmpty() || skracenica.length()>3) 
+			throw new RuntimeException("Unesite skracenicu valute.");
 		this.skracenica = skracenica;
 	}
 	public KursValute getKv() {
 		return kv;
 	}
 	public void setKv(KursValute kv) {
+		if(kv == null) 
+			throw new RuntimeException("Kurs valute ne moze da bude null.");
 		this.kv = kv;
 	}
 	public int hashCode() {
@@ -61,11 +67,11 @@ public class Valuta {
 		return "Valuta [ime=" + ime + ", skracenica=" + skracenica + ", kv="
 				+ kv + "]";
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 }
